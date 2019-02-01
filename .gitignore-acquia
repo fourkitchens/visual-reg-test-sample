@@ -1,0 +1,46 @@
+# Ignore directories
+/.circleci/
+/files-private/
+/reference/
+!/reference/.gitkeep
+/scripts/composer/
+/scripts/node/
+/scripts/travis/
+/tests/
+/node_modules/
+/docroot/sites/default/files
+/docroot/sites/*/files
+/docroot/sites/*/private
+/docroot/sites/simpletest
+/docroot/themes/custom/*/node_modules/
+/private/
+/tmp/
+/deploy/
+/deployment_identifier/
+
+# Ignore specific files
+docroot/sites/default/settings.local.php
+docroot/sites/default/settings.devdesktop.php
+docroot/sites/default/services*.yml
+.lando.yml
+.nvmrc
+.travis.yml
+LICENSE
+README.md
+phpcs.xml.dist
+salt.txt
+yarn.lock
+
+# Ignore files OS and software files
+.idea
+.DS_Store
+docroot/sites/*.dd
+
+# Ignore SimpleTest multi-site environment.
+/docroot/sites/simpletest
+
+# Ignore Acquia Dev Desktop configs.
+/docroot/sites/*.dd
+
+# Ignore .env files as they are personal
+/.env

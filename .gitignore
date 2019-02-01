@@ -24,9 +24,12 @@ tmp/*
 .DS_Store
 
 # Ignore configuration files that may contain sensitive information.
-docroot/sites/*/settings.local.php
-docroot/sites/*/settings.devdesktop.php
-docroot/sites/*/services*.yml
+docroot/sites/default/settings.local.php
+docroot/sites/default/local.drush.yml
+docroot/sites/default/local.drushrc.php
+docroot/sites/default/settings.devdesktop.php
+docroot/sites/default/services*.yml
+docroot/sites/development.services.yml
 
 # Ignore SimpleTest multi-site environment.
 docroot/sites/simpletest
@@ -34,8 +37,15 @@ docroot/sites/simpletest
 # Ignore Acquia Dev Desktop configs.
 docroot/sites/*.dd
 
+# Node
+/node_modules
+
+# Other random files
+.phplint-cache
+
 # Reference assets.
 reference/*
+reference/backup-*.sql.gz
 !reference/.gitkeep
 !reference/db.sql.gz
 !reference/db-export-content.sql.gz

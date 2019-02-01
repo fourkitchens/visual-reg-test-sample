@@ -1,10 +1,14 @@
-name: dcon-2018-searchapi-solr
+name: vrt-test
 recipe: drupal8
 config:
   webroot: docroot
 proxy:
   solrindex:
     - admin.solr.lndo.site:8983
+tooling:
+  drush:
+    service: appserver
+    cmd: "drush --root=/app/docroot --uri=https://vrt-test.lndo.site"
 services:
   solrindex:
     type: solr:6.6
