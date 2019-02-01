@@ -88,7 +88,20 @@
  * );
  * @endcode
  */
-$databases = [];
+/**
+ * Lando atabase configuration.
+ */
+if (getenv('LANDO_APP_NAME')) {
+  $databases['default']['default'] = array(
+    'database' => getenv('DB_NAME'),
+    'username' => getenv('DB_USER'),
+    'password' => getenv('DB_PASSWORD'),
+    'prefix' => '',
+    'host' => getenv('DB_HOST'),
+    'port' => getenv('DB_PORT'),
+    'driver' => 'mysql',
+  );
+}
 
 /**
  * Customizing database settings.
@@ -251,7 +264,10 @@ $databases = [];
  *   );
  * @endcode
  */
-$config_directories = [];
+$config_directories = array();
+$config_directories = array(
+  'sync' => '../config/base',
+);
 
 /**
  * Settings:
@@ -262,6 +278,23 @@ $config_directories = [];
  *
  * @see \Drupal\Core\Site\Settings::get()
  */
+
+/**
+ * The active installation profile.
+ *
+ * Changing this after installation is not recommended as it changes which
+ * directories are scanned during extension discovery. If this is set prior to
+ * installation this value will be rewritten according to the profile selected
+ * by the user.
+ *
+ * @see install_select_profile()
+ *
+ * @deprecated in Drupal 8.3.0 and will be removed before Drupal 9.0.0. The
+ *   install profile is written to the core.extension configuration. If a
+ *   service requires the install profile use the 'install_profile' container
+ *   parameter. Functional code can use \Drupal::installProfile().
+ */
+# $settings['install_profile'] = '';
 
 /**
  * Salt for one-time login links, cancel links, form tokens, etc.
@@ -280,7 +313,7 @@ $config_directories = [];
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
  */
-$settings['hash_salt'] = '';
+$settings['hash_salt'] = '-h-S6H6k1jpE98C0DjI3-p4vtnxotofGx1elZF37r-b-aFfu4BlzYu48fexYbFERyvE1_A_Cgg';
 
 /**
  * Deployment identifier.
@@ -362,7 +395,7 @@ $settings['update_free_access'] = FALSE;
  * Specify every reverse proxy IP address in your environment.
  * This setting is required if $settings['reverse_proxy'] is TRUE.
  */
-# $settings['reverse_proxy_addresses'] = ['a.b.c.d', ...];
+# $settings['reverse_proxy_addresses'] = array('a.b.c.d', ...);
 
 /**
  * Set this value if your proxy server sends the client IP in a header
@@ -556,10 +589,10 @@ if ($settings['hash_salt']) {
  * The "en" part of the variable name, is dynamic and can be any langcode of
  * any added language. (eg locale_custom_strings_de for german).
  */
-# $settings['locale_custom_strings_en'][''] = [
+# $settings['locale_custom_strings_en'][''] = array(
 #   'forum'      => 'Discussion board',
 #   '@count min' => '@count minutes',
-# ];
+# );
 
 /**
  * A custom theme for the offline page:
@@ -613,7 +646,7 @@ if ($settings['hash_salt']) {
  *   override in a services.yml file in the same directory as settings.php
  *   (definitions in this file will override service definition defaults).
  */
-# $settings['bootstrap_config_storage'] = ['Drupal\Core\Config\BootstrapConfigStorageFactory', 'getFileStorage'];
+# $settings['bootstrap_config_storage'] = array('Drupal\Core\Config\BootstrapConfigStorageFactory', 'getFileStorage');
 
 /**
  * Configuration overrides.
@@ -768,12 +801,16 @@ $settings['entity_update_batch_size'] = 50;
 # if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
+$databases['default']['default'] = array (
+  'database' => 'drupal8',
+  'username' => 'drupal8',
+  'password' => 'drupal8',
+  'prefix' => '',
+  'host' => 'database',
+  'port' => '3306',
+  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+  'driver' => 'mysql',
+);
+$settings['install_profile'] = 'thunder';
 
 
-// On Acquia Cloud, this include file configures Drupal to use the correct
-// database in each site environment (Dev, Stage, or Prod). To use this
-// settings.php for development on your local workstation, set $db_url
-// (Drupal 5 or 6) or $databases (Drupal 7 or 8) as described in comments above.
-if (file_exists('/var/www/site-php')) {
-  require('/var/www/site-php/fkvrt/fkvrt-settings.inc');
-}

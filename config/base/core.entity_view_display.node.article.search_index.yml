@@ -1,0 +1,53 @@
+uuid: 01b08ecf-62f2-4b23-86a1-2cfa1190eb16
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_index
+    - field.field.node.article.field_channel
+    - field.field.node.article.field_meta_tags
+    - field.field.node.article.field_paragraphs
+    - field.field.node.article.field_seo_title
+    - field.field.node.article.field_tags
+    - field.field.node.article.field_teaser_media
+    - field.field.node.article.field_teaser_text
+    - node.type.article
+  module:
+    - empty_fields
+    - entity_reference_revisions
+    - user
+_core:
+  default_config_hash: IGE_nvsia8aFDINz5w9PaBeY_iVdQE3nIHbkyYazm9Q
+id: node.article.search_index
+targetEntityType: node
+bundle: article
+mode: search_index
+content:
+  field_paragraphs:
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_tags:
+    type: entity_reference_label
+    weight: 1
+    label: hidden
+    settings:
+      link: false
+    third_party_settings:
+      empty_fields:
+        handler: ''
+    region: content
+hidden:
+  field_channel: true
+  field_meta_tags: true
+  field_seo_title: true
+  field_teaser_media: true
+  field_teaser_text: true
+  langcode: true
+  links: true
+  shariff_field: true

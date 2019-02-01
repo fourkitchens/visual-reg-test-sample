@@ -1,0 +1,14 @@
+name: dcon-2018-searchapi-solr
+recipe: drupal8
+config:
+  webroot: docroot
+proxy:
+  solrindex:
+    - admin.solr.lndo.site:8983
+services:
+  solrindex:
+    type: solr:6.6
+    portforward: 9999
+    core: collection1
+    config:
+      conf: docroot/modules/contrib/search_api_solr/solr-conf/6.x
