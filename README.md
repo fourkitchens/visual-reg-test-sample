@@ -1,4 +1,4 @@
-# DrupalCon 2018 - Solr Search Example
+# Visual Regression Testing Example
 
 ## Requirements
 - [Composer](https://getcomposer.org)
