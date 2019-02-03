@@ -29,7 +29,7 @@
  */
 $aliases['self'] = array (
   'root' => '/docroot',
-  'uri' => 'http://extensionsdstateedu.lndo.site',
+  'uri' => 'http://vrt-test.lndo.site',
   'path-aliases' =>
     array (
       '%drush' => '/usr/bin',

@@ -58,6 +58,8 @@
  * implementations with custom ones.
  */
 
+use Composer\Autoload\ClassLoader;
+
 /**
  * Database settings:
  *
@@ -88,20 +90,7 @@
  * );
  * @endcode
  */
-/**
- * Lando atabase configuration.
- */
-if (getenv('LANDO_APP_NAME')) {
-  $databases['default']['default'] = array(
-    'database' => getenv('DB_NAME'),
-    'username' => getenv('DB_USER'),
-    'password' => getenv('DB_PASSWORD'),
-    'prefix' => '',
-    'host' => getenv('DB_HOST'),
-    'port' => getenv('DB_PORT'),
-    'driver' => 'mysql',
-  );
-}
+$databases = array();
 
 /**
  * Customizing database settings.
@@ -265,9 +254,6 @@ if (getenv('LANDO_APP_NAME')) {
  * @endcode
  */
 $config_directories = array();
-$config_directories = array(
-  'sync' => '../config/base',
-);
 
 /**
  * Settings:
@@ -313,7 +299,7 @@ $config_directories = array(
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
  */
-$settings['hash_salt'] = '-h-S6H6k1jpE98C0DjI3-p4vtnxotofGx1elZF37r-b-aFfu4BlzYu48fexYbFERyvE1_A_Cgg';
+$settings['hash_salt'] = '';
 
 /**
  * Deployment identifier.
@@ -698,9 +684,9 @@ if ($settings['hash_salt']) {
  *
  * Remove the leading hash signs if you would like to alter this functionality.
  */
-# $config['system.performance']['fast_404']['exclude_paths'] = '/\/(?:styles)|(?:system\/files)\//';
-# $config['system.performance']['fast_404']['paths'] = '/\.(?:txt|png|gif|jpe?g|css|js|ico|swf|flv|cgi|bat|pl|dll|exe|asp)$/i';
-# $config['system.performance']['fast_404']['html'] = '<!DOCTYPE html><html><head><title>404 Not Found</title></head><body><h1>Not Found</h1><p>The requested URL "@path" was not found on this server.</p></body></html>';
+$config['system.performance']['fast_404']['exclude_paths'] = '/\/(?:styles)|(?:system\/files)\//';
+$config['system.performance']['fast_404']['paths'] = '/\.(?:txt|png|gif|jpe?g|css|js|ico|swf|flv|cgi|bat|pl|dll|exe|asp)$/i';
+$config['system.performance']['fast_404']['html'] = '<!DOCTYPE html><html><head><title>404 Not Found</title></head><body><h1>Not Found</h1><p>The requested URL "@path" was not found on this server.</p></body></html>';
 
 /**
  * Load services definition file.
@@ -787,6 +773,14 @@ $settings['file_scan_ignore_directories'] = [
  */
 $settings['entity_update_batch_size'] = 50;
 
+// On Acquia Cloud, this include file configures Drupal to use the correct
+// database in each site environment (Dev, Stage, or Prod). To use this
+// settings.php for development on your local workstation, set $db_url
+// (Drupal 5 or 6) or $databases (Drupal 7 or 8) as described in comments above.
+if (file_exists('/var/www/site-php')) {
+  require('/var/www/site-php/fkvrt/fkvrt-settings.inc');
+}
+
 /**
  * Load local development override configuration, if available.
  *
@@ -801,16 +795,17 @@ $settings['entity_update_batch_size'] = 50;
 # if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
-$databases['default']['default'] = array (
-  'database' => 'drupal8',
-  'username' => 'drupal8',
-  'password' => 'drupal8',
-  'prefix' => '',
-  'host' => 'database',
-  'port' => '3306',
-  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
-  'driver' => 'mysql',
+if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
+  include $app_root . '/' . $site_path . '/settings.local.php';
+}
+$config_directories = array(
+  CONFIG_SYNC_DIRECTORY => DRUPAL_ROOT . "/../config/default",
+  'dev' => DRUPAL_ROOT . '/../config/dev',
 );
+// Using Thunder profile.
 $settings['install_profile'] = 'thunder';
 
-
+// Enable config split folder 'live' on prod.
+//if (isset($_ENV['AH_SITE_ENVIRONMENT']) && $_ENV['AH_SITE_ENVIRONMENT'] == 'prod') {
+//  $config['config_split.config_split.live']['status'] = TRUE;
+//}
