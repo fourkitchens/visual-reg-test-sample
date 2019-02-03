@@ -66,7 +66,7 @@ $options['shell-aliases']['fresh'] = '!( ' . implode(" ) && \n ( ", [
     "drush sql-drop -y",
 
     "echo '\nImporting reference database...'",
-    "gunzip < ../reference/backup.sql.gz | sed '/INSERT INTO `cache.*` VALUES/d' | drush sql-cli",
+    "gunzip < ../reference/db.sql.gz | sed '/INSERT INTO `cache.*` VALUES/d' | drush sql-cli",
 
     "echo '\nSetting admin password...'",
     "drush user-password 1 --password=admin",

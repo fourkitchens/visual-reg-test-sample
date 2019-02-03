@@ -1,4 +1,4 @@
 <?php
 
-$options['uri'] = "http://extensionsdstateedu.lndo.site";
+$options['uri'] = "http://vrt-test.lndo.site";
 
