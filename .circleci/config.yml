@@ -21,7 +21,7 @@
 # - ACQUIA_BOT_NAME
 #     Display name use for the deployment committer.
 
-version: 2
+version: 2.1
 defaults: &defaults
   docker:
     - image: fourkitchens/ubuntu-1604-php71-node8-apache:0.0.3

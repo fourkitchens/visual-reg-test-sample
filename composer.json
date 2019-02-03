@@ -98,6 +98,13 @@
         ],
         "post-update-cmd": [
             "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+        ],
+        "lint": [
+            "./node_modules/.bin/eslint ./",
+            "find docroot/modules/custom docroot/themes/custom -name '*.php' -exec php -l {} \\;"
+        ],
+        "code-sniff": [
+            "phpcs"
         ]
     },
     "extra": {
