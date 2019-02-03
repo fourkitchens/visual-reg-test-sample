@@ -28,7 +28,7 @@ defaults: &defaults
       environment:
         DATE_TIMEZONE: America/Chicago
         TERM: xterm
-        ACQUIA_CANONICAL_ENV: prod
+        ACQUIA_CANONICAL_ENV: dev
         ACQUIA_ENDPOINT: https://cloudapi.acquia.com/v1
         ACQUIA_REALM: devcloud
         ACQUIA_SITE: fkvrt
