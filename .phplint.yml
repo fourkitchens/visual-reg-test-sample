@@ -1,0 +1,17 @@
+path: ./
+extensions:
+  - php
+  - module
+  - inc
+  - install
+  - theme
+exclude:
+  - acquia-utils
+  - docroot/core
+  - docroot/private
+  - docroot/profiles
+  - docroot/modules/contrib
+  - docroot/libraries
+  - docroot/themes/custom/sdsu/build
+  - docroot/themes/custom/sdsu/pattern-lab
+  - vendor
