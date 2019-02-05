@@ -37,19 +37,6 @@ $aliases['self'] = array (
     ),
 );
 
-
-/**
- * Local alias
- * Set the root and site_path values to point to your local site
- */
-//$aliases['local'] = array(
-//  'root' => '/path/to/drupal/root',
-//  'uri'  => 'yoursite.localhost',
-//  'path-aliases' => array(
-//    '%dump-dir' => '/tmp',
-//  ),
-//);
-
 $options['shell-aliases'] = [];
 
 // Supply backup.sql.gz and optionally files.tar.gz for a local restore point

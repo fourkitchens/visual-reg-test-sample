@@ -799,7 +799,7 @@ if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
   include $app_root . '/' . $site_path . '/settings.local.php';
 }
 $config_directories = array(
-  CONFIG_SYNC_DIRECTORY => DRUPAL_ROOT . "/../config/default",
+  CONFIG_SYNC_DIRECTORY => DRUPAL_ROOT . "/../config/base",
   'dev' => DRUPAL_ROOT . '/../config/dev',
 );
 // Using Thunder profile.
