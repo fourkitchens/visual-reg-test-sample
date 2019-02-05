@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e72c71e03537cf8855670ea7f115af83",
+    "content-hash": "1b58aac76477d3d942f2819d3ee09c22",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -3740,8 +3740,7 @@
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
-                },
-                "patches_applied": []
+                }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
@@ -5430,6 +5429,10 @@
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "patches_applied": {
+                    "Deny edit access to scheduled content for unprivileged users": "https://www.drupal.org/files/issues/2018-12-18/3020250-8.patch",
+                    "Scheduler integration with core Content moderation": "https://www.drupal.org/files/issues/2019-01-23/2798689-170-alternative-approach.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -10633,9 +10636,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "drupal/facets": 10
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],

@@ -73,9 +73,9 @@
         "webmozart/path-util": "^2.3",
         "drupal/search_api": "^1.7",
         "drupal/search_api_solr": "^1.2",
-        "drupal/facets": "^1.0@beta",
         "enyo/dropzone": "^5.1",
-        "simeydotme/jQuery-ui-Slider-Pips": "1.11.3"
+        "simeydotme/jQuery-ui-Slider-Pips": "1.11.3",
+        "drupal/facets": "^1.2"
 
     },
     "minimum-stability": "dev",
