@@ -67,15 +67,15 @@
         "drupal-composer/drupal-scaffold": "^2.2",
         "drupal/console": "~1.0.2",
         "composer/installers": "^1.2",
-        "drush/drush": "^8.1.17",
+        "drush/drush": "~8.0|^9.0.0-beta8",
         "oomphinc/composer-installers-extender": "^1.1",
         "webflo/drupal-finder": "^1.0.0",
         "webmozart/path-util": "^2.3",
         "drupal/search_api": "^1.7",
         "drupal/search_api_solr": "^1.2",
+        "drupal/facets": "^1.0@beta",
         "enyo/dropzone": "^5.1",
-        "simeydotme/jQuery-ui-Slider-Pips": "1.11.3",
-        "drupal/facets": "^1.2"
+        "simeydotme/jQuery-ui-Slider-Pips": "1.11.3"
 
     },
     "minimum-stability": "dev",
@@ -98,13 +98,6 @@
         ],
         "post-update-cmd": [
             "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
-        ],
-        "lint": [
-            "./node_modules/.bin/eslint ./",
-            "find docroot/modules/custom docroot/themes/custom -name '*.php' -exec php -l {} \\;"
-        ],
-        "code-sniff": [
-            "phpcs"
         ]
     },
     "extra": {
@@ -118,7 +111,13 @@
             "docroot/modules/contrib/{$name}": ["type:drupal-module"],
             "docroot/profiles/contrib/{$name}": ["type:drupal-profile"],
             "docroot/themes/contrib/{$name}": ["type:drupal-theme"],
-            "drush/Commands/{$name}": ["type:drupal-drush"]
+            "drush/contrib/{$name}": ["type:drupal-drush"]
+        },
+        "enable-patching": true,
+        "patches": {
+            "drupal/facets": {
+                "Update jquery.ui.slider.pips JS/CSS paths": "https://www.drupal.org/files/issues/update-facets-range-widget-library-paths-2943636-2.patch"
+            }
         }
     },
     "config": {

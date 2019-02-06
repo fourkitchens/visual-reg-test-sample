@@ -12,7 +12,7 @@ third_party_settings:
   media_expire:
     expire_field: field_expires
     enable_expiring: 1
-    fallback_media: febfb1fd-1bd1-436b-8765-9e2dbcee7dd3
+    fallback_media: '1'
 _core:
   default_config_hash: 200fCmvIptAKaiDAQZGCd6Er8Qd0WKvFJawt4U1-Yvk
 id: image

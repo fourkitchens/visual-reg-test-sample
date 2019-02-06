@@ -1,5 +1,5 @@
 progress:
-  '#changed': 1549424924
+  '#changed': 1522198935
   '#changed_by': '0'
   '#items':
     thunder_post_update_install_config_selector:
@@ -86,7 +86,4 @@ progress:
     v1_1__thunder_amp:
       '#completed': 1522198935
       '#uid': '0'
-    thunder_article_move_scheduler_to_content_list:
-      '#completed': 1549424924
-      '#uid': '0'
-  '#completed_items': 29
+  '#completed_items': 28
