@@ -98,6 +98,13 @@
         ],
         "post-update-cmd": [
             "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+        ],
+        "lint": [
+            "./node_modules/.bin/eslint ./",
+            "find docroot/modules/custom docroot/themes/custom -name '*.php' -exec php -l {} \\;"
+        ],
+        "code-sniff": [
+            "phpcs"
         ]
     },
     "extra": {
@@ -112,12 +119,6 @@
             "docroot/profiles/contrib/{$name}": ["type:drupal-profile"],
             "docroot/themes/contrib/{$name}": ["type:drupal-theme"],
             "drush/contrib/{$name}": ["type:drupal-drush"]
-        },
-        "enable-patching": true,
-        "patches": {
-            "drupal/facets": {
-                "Update jquery.ui.slider.pips JS/CSS paths": "https://www.drupal.org/files/issues/update-facets-range-widget-library-paths-2943636-2.patch"
-            }
         }
     },
     "config": {
