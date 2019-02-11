@@ -32,12 +32,6 @@
     "confim": "node scripts/node/confim.js",
     "lint": "node scripts/node/lint.js",
     "lint-js": "node scripts/node/lint-js.js",
-    "lint-php": "node scripts/node/lint-php.js",
-    "eslint": "eslint ./docroot/modules/custom/** ./docroot/themes/custom/** --color",
-    "eslint-fix": "eslint ./docroot/modules/custom/** ./docroot/themes/custom/** --fix --color",
-    "theme": "cd ./docroot/themes/custom/vrt-test && yarn start",
-    "sass-compile": "cd ./docroot/themes/custom/vrt-test && yarn compile",
-    "postinstall": "cd ./docroot/themes/custom/vrt-test && yarn",
-    "pl": "cd ./docroot/themes/custom/vrt-test && yarn deploy"
+    "lint-php": "node scripts/node/lint-php.js"
   }
 }

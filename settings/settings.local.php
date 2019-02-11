@@ -165,13 +165,6 @@ $settings['trusted_host_patterns'] = array(
 // Add config split folder 'dev'.
 $config['config_split.config_split.dev']['status'] = TRUE;
 
-
-$settings['memcache']['servers'] = ['cache:11211' => 'default'];
-$settings['memcache']['bins'] = ['default' => 'default'];
-$settings['memcache']['key_prefix'] = 'extensionsdstateedu_';
-
-$settings['cache']['default'] = 'cache.backend.memcache';
-
 // Acquia Search Server configuration for local environment.
 $config['search_api.server.acquia_search_server']['backend_config']['connector'] = 'standard';
 $config['search_api.server.acquia_search_server']['backend_config']['connector_config']['scheme'] = 'http';
@@ -179,3 +172,13 @@ $config['search_api.server.acquia_search_server']['backend_config']['connector_c
 $config['search_api.server.acquia_search_server']['backend_config']['connector_config']['port'] = '8983';
 $config['search_api.server.acquia_search_server']['backend_config']['connector_config']['path'] = '/solr';
 $config['search_api.server.acquia_search_server']['backend_config']['connector_config']['core'] = 'index1';
+
+/**
+ * This encryption will be used to encrypt and decrypt values by the encryption
+ * module.
+ *
+ * The value should shared between sites that share encrypted configuration. If
+ * the `encryption_key` were to change encrypted data/configuration would be in
+ * a corrupt state until the correct encryption key were recovered.
+ */
+$settings['encryption_key'] = 'LJaQvDjO7CWowG+5bh+t3l6+TAjoNFg4oimVDGtD9Mg=';
