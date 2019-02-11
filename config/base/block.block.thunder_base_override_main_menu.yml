@@ -1,0 +1,26 @@
+uuid: 65b92e77-cc22-407c-80ad-0cf9a67b0b1e
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - thunder_base_override
+_core:
+  default_config_hash: KTq-YMoHZohfQaTto3A_LtSlhTtP7qC3BctmhF21s0I
+id: thunder_base_override_main_menu
+theme: thunder_base_override
+region: primary_menu
+weight: 0
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 1
+visibility: {  }

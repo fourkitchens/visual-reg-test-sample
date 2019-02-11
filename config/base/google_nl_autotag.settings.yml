@@ -1,0 +1,7 @@
+content_types:
+  article:
+    - node.article.field_seo_title
+    - node.article.field_teaser_text
+  page:
+    - node.page.body
+classification_threshold: '.5'

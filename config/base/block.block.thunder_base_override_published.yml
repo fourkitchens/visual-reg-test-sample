@@ -1,0 +1,28 @@
+uuid: 59eb503a-3db5-4bcc-9697-29dbc320cd5d
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.published
+  module:
+    - facets
+    - system
+  theme:
+    - thunder_base_override
+id: thunder_base_override_published
+theme: thunder_base_override
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'facet_block:published'
+settings:
+  id: 'facet_block:published'
+  label: 'Filter by Year'
+  provider: facets
+  label_display: visible
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

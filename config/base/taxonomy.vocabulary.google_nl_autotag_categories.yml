@@ -1,0 +1,11 @@
+uuid: 015fd3ce-e0b9-446c-a0a9-4dc77dae91f6
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: KwO6U1ZhUewnsJsn7brOmpRytsv-3cvinRrs9BZjwds
+name: 'Google NL Autotag Categories'
+vid: google_nl_autotag_categories
+description: 'Taxonomy for auto-tagging content based on Google''s Natural Language content classifications.'
+hierarchy: 0
+weight: 0

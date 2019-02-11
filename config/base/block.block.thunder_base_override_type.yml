@@ -1,0 +1,28 @@
+uuid: 35a9e194-e191-4099-996d-4966b0a339a8
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.type
+  module:
+    - facets
+    - system
+  theme:
+    - thunder_base_override
+id: thunder_base_override_type
+theme: thunder_base_override
+region: sidebar_first
+weight: -7
+provider: null
+plugin: 'facet_block:type'
+settings:
+  id: 'facet_block:type'
+  label: 'Filter by Type'
+  provider: facets
+  label_display: visible
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: true
+    context_mapping: {  }

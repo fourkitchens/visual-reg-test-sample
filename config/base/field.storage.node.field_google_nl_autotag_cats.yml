@@ -1,0 +1,20 @@
+uuid: 2da3f41d-a3a4-4bfa-b180-12b30030eff5
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_google_nl_autotag_cats
+field_name: field_google_nl_autotag_cats
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

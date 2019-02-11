@@ -4,10 +4,12 @@ status: true
 dependencies:
   config:
     - field.field.node.page.body
+    - field.field.node.page.field_google_nl_autotag_cats
     - node.type.page
   module:
     - path
     - scheduler
+    - straw
     - text
 _core:
   default_config_hash: AKfujVkKTj2rNX3X_YjMICEoCfJ6oWhfE4lUXfcc5Tk
@@ -31,6 +33,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
+  field_google_nl_autotag_cats:
+    type: super_term_reference_autocomplete_widget
+    region: content
+    weight: 10
+    settings:
+      match_operator: CONTAINS
+      size: 60
+    third_party_settings: {  }
   langcode:
     type: language_select
     weight: 2
@@ -98,4 +108,5 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_google_nl_autotag_cats: true

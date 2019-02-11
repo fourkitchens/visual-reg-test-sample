@@ -1,0 +1,25 @@
+uuid: de8fc225-b3e5-4ef6-aac5-9d9363c1cf8a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_google_nl_autotag_cats
+    - node.type.article
+    - taxonomy.vocabulary.google_nl_autotag_categories
+id: node.article.field_google_nl_autotag_cats
+field_name: field_google_nl_autotag_cats
+entity_type: node
+bundle: article
+label: 'Google NL Autotag Categories'
+description: 'Google NL Autotag content classification categories.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: straw
+  handler_settings:
+    target_bundles:
+      google_nl_autotag_categories: google_nl_autotag_categories
+    auto_create: true
+field_type: entity_reference

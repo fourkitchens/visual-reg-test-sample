@@ -5,6 +5,7 @@ dependencies:
   config:
     - entity_browser.browser.image_browser
     - field.field.node.article.field_channel
+    - field.field.node.article.field_google_nl_autotag_cats
     - field.field.node.article.field_meta_tags
     - field.field.node.article.field_paragraphs
     - field.field.node.article.field_seo_title
@@ -19,6 +20,7 @@ dependencies:
     - paragraphs
     - path
     - scheduler
+    - straw
 third_party_settings:
   field_group:
     group_teaser:
@@ -83,6 +85,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
+  field_google_nl_autotag_cats:
+    type: super_term_reference_autocomplete_widget
+    region: content
+    weight: 10
+    settings:
+      match_operator: CONTAINS
+      size: 60
+    third_party_settings: {  }
   field_meta_tags:
     weight: 10
     settings: {  }
@@ -218,4 +228,5 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_google_nl_autotag_cats: true

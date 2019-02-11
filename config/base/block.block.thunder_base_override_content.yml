@@ -1,0 +1,22 @@
+uuid: fdfe8872-317f-4559-bf08-56ebb2c27de3
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - thunder_base_override
+_core:
+  default_config_hash: PEqEz1k7tHRCJ_mtDJq1WRTmzZA0hF_JELDRF9H7fNU
+id: thunder_base_override_content
+theme: thunder_base_override
+region: content
+weight: -2
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }
