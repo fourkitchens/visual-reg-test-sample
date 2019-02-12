@@ -101,8 +101,8 @@ workflows:
     jobs:
       - test
         - percy/finalize_all:
-          requires:
-            - test
+            requires:
+              - test
       - build
       - deploy:
           requires:
