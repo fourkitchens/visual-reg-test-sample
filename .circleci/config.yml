@@ -41,10 +41,10 @@ orbs:
 jobs:
   test:
     parallelism: 3
-       steps:
-         - attach_workspace:
-             at: .
-         - run: echo "your tests run here"
+      steps:
+        - attach_workspace:
+          at: .
+        - run: echo "your tests run here"
   build:
     <<: *defaults
     steps:
