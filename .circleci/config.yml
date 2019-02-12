@@ -39,6 +39,12 @@ defaults: &defaults
 orbs:
   agent: percy/agent@0.1.3
 jobs:
+  test:
+    parallelism: 3
+       steps:
+         - attach_workspace:
+             at: .
+         - run: echo "your tests run here"
   build:
     <<: *defaults
     steps:
@@ -94,7 +100,10 @@ jobs:
 workflows:
   build-deploy:
     jobs:
-      - percy/finalize_all
+      - test
+        - percy/finalize_all:
+          requires:
+            - test
       - build
       - deploy:
           requires:
