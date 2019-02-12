@@ -90,8 +90,12 @@ jobs:
       - run: git commit -am "Built assets."
       - run: git push acquia $CIRCLE_BRANCH -f --tags
       - run: echo "If deployment was successful, Acquia Cloud dev/post-code-update hook will handle importing config, updating db, and clearing caches."
+orbs:
+  agent: percy/agent@0.1.3
 workflows:
-  version: 2
+  percy_finalize_all:
+    jobs:
+      - percy/finalize_all
   build-deploy:
     jobs:
       - build

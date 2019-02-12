@@ -7,17 +7,18 @@
     "shelljs": "^0.8.2"
   },
   "devDependencies": {
+    "@percy/nightwatch": "^1.0.2",
     "eslint": "^4.19.1",
-    "prettier": "^1.14.2",
     "eslint-config-airbnb": "^17.0.0",
+    "eslint-config-prettier": "^3.0.1",
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-prettier": "^2.6.2",
     "eslint-plugin-promise": "^4.0.0",
     "eslint-plugin-react": "^7.10.0",
     "eslint-plugin-standard": "^3.1.0",
-    "eslint-plugin-prettier": "^2.6.2",
-    "eslint-config-prettier": "^3.0.1"
+    "prettier": "^1.14.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

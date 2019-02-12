@@ -5,6 +5,8 @@ config:
 proxy:
   solrindex:
     - admin.solr.lndo.site:8983
+env_file:
+  - percy.env
 tooling:
   drush:
     service: appserver
