@@ -77,7 +77,8 @@
         "enyo/dropzone": "^5.1",
         "simeydotme/jQuery-ui-Slider-Pips": "1.11.3",
         "drupal/google_nl_api": "^1.2",
-        "drupal/google_nl_autotag": "^1.0"
+        "drupal/google_nl_autotag": "^1.0",
+        "bower-asset/jquery-ui-slider-pips": "^1.11"
 
     },
     "minimum-stability": "dev",
