@@ -39,14 +39,6 @@ defaults: &defaults
 orbs:
   percy: percy/agent@0.1.2
 jobs:
-  test:
-    parallelism: 1
-    shell: /bin/sh
-    docker:
-      - image: circleci/node:10-browsers
-    steps:
-      - checkout
-      - run: echo "your tests run here"
   build:
     <<: *defaults
     steps:
@@ -67,6 +59,12 @@ jobs:
       - run: service apache2 start
       - run: chown -R root:www-data ./docroot
       - run: curl "http://project.local"
+  test:
+    <<: *defaults
+    parallelism: 1
+    shell: /bin/sh
+    steps:
+      - run: echo "your tests run here"
   deploy:
     <<: *defaults
     steps:
@@ -102,11 +100,10 @@ jobs:
 workflows:
   build-deploy:
     jobs:
-      - test
-      - percy/finalize_all:
-          requires:
-            - test
       - build
+      - test
+          requires:
+            - build
       - deploy:
           requires:
             - build
