@@ -37,14 +37,15 @@ defaults: &defaults
         ACQUIA_BOT_NAME: "Four Kitchens"
   working_directory: ~/project
 orbs:
-  agent: percy/agent@0.1.2
+  percy: percy/agent@0.1.2
 jobs:
   test:
+    parallelism: 1
+    shell: /bin/sh
     docker:
       - image: circleci/node:10-browsers
     steps:
-      - attach_workspace:
-          at: .
+      - checkout
       - run: echo "your tests run here"
   build:
     <<: *defaults
