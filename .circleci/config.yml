@@ -45,7 +45,7 @@ jobs:
     steps:
       - attach_workspace:
           at: .
-      - run: echo "your tests run here, Ex. - run: npm test "
+      - run: echo "your tests run here"
   build:
     <<: *defaults
     steps:
