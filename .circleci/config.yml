@@ -40,10 +40,12 @@ orbs:
   agent: percy/agent@0.1.3
 jobs:
   test:
+    docker:
+      - image: circleci/node:10-browsers
     steps:
       - attach_workspace:
           at: .
-      - run: echo "your tests run here"
+      - run: echo "your tests run here, Ex. - run: npm test "
   build:
     <<: *defaults
     steps:
