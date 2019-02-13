@@ -64,6 +64,7 @@ jobs:
     parallelism: 1
     shell: /bin/sh
     steps:
+      - checkout
       - run: echo "your tests run here"
   deploy:
     <<: *defaults
@@ -104,6 +105,9 @@ workflows:
       - test:
           requires:
             - build
+      - percy/finalize_all:
+          requires:
+            - test
       - deploy:
           requires:
             - build
