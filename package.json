@@ -7,7 +7,14 @@
     "shelljs": "^0.8.2"
   },
   "devDependencies": {
+    "@percy/agent": "^0.1.14",
     "@percy/nightwatch": "^1.0.2",
+    "chromedriver": "^2.46.0",
+    "http-server": "^0.11.1",
+    "nightwatch": "^1.0.19",
+    "selenium-server": "^3.141.59",
+    "todomvc-app-css": "^2.1.2",
+    "todomvc-common": "^1.0.5",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^17.0.0",
     "eslint-config-prettier": "^3.0.1",
@@ -21,7 +28,7 @@
     "prettier": "^1.14.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "percy exec -- nightwatch",
     "setup": "node scripts/node/setup.js",
     "build": "node scripts/node/build.js",
     "local-env": "node scripts/node/local-env.js",
