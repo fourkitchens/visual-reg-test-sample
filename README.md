@@ -11,7 +11,7 @@ If you want to run the local environment included in this repo you'll need to in
 ## Set-up
 - Run: `composer install`
 - Run: `lando start`
-- Run: `lando db-import reference/db-export-content.sql.gz`
+- Run: `lando db-import reference/db-sync.sql.gz`
 - Run: `lando drush cim sync -y`
 - Run: `lando drush cr`
 - Run: `lando drush sapi-c`
