@@ -64,8 +64,32 @@ jobs:
     parallelism: 1
     shell: /bin/sh
     steps:
-      - checkout
-      - run: echo "your tests run here"
+      docker:
+        - image: circleci/node:10-browsers
+
+      steps:
+        - checkout
+
+        - restore_cache:
+            keys:
+              - node-dependencies-{{ checksum "package.json" }}
+              # fallback to using the latest cache if no exact match is found
+              - node-dependencies-
+
+        - run: npm install
+
+        - save_cache:
+            paths:
+              - node_modules
+            key: node-dependencies-{{ checksum "package.json" }}
+
+        - run:
+            name: Set additional environment variables
+            command: ./.circleci/scripts/set-environment-test
+
+        - run:
+            name: Run visual regression tests
+            command: npm test
   deploy:
     <<: *defaults
     steps:
